@@ -57,7 +57,14 @@ export function AppSidebar() {
         <Sidebar>
             <SidebarContent>
                 <SidebarHeader>
-                    <span className="font-bold text-lg items-center justify-center">Notecord</span>
+                    <span className="flex items-center font-bold text-lg justify-center mt-1.5">
+                        <img
+                            src="/favicon.ico"
+                            alt="Notecord Icon"
+                            className="w-6 h-6 mr-2"
+                        />
+                        Notecord
+                    </span>
                 </SidebarHeader>
                 <SidebarSeparator />
                 <SidebarGroup>
