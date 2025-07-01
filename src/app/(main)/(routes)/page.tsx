@@ -1,7 +1,7 @@
 import React from 'react';
 import { UserButton } from '@clerk/nextjs';
 import { ModeToggle } from '@/components/mode-toggle';
-import { Hash } from "lucide-react";
+import { Hash, Paperclip } from "lucide-react";
 
 export default function Home() {
   // Canal selecionado fictício
@@ -40,11 +40,21 @@ export default function Home() {
       </div>
       {/* Input do chat */}
       <div className="border-t border-border p-4 bg-background sticky bottom-0 w-full">
-        <input
-          type="text"
-          placeholder={`Message #${selectedChannel.name}`}
-          className="w-full rounded-md bg-muted px-4 py-2 outline-none focus:ring-2 focus:ring-primary"
-        />
+        <div className="flex items-center gap-2">
+          {/* Botão de enviar arquivos */}
+          <button
+            type="button"
+            className="p-2 rounded-md hover:bg-muted transition-colors"
+            title="Enviar arquivo"
+          >
+            <Paperclip className="w-5 h-5 opacity-70" />
+          </button>
+          <input
+            type="text"
+            placeholder={`Message #${selectedChannel.name}`}
+            className="w-full rounded-md bg-muted px-4 py-2 outline-none focus:ring-2 focus:ring-primary"
+          />
+        </div>
       </div>
     </div>
   );
