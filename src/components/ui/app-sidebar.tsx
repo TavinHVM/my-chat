@@ -1,4 +1,4 @@
-import { Calendar, Home, Group, Search, Settings } from "lucide-react"
+import { Calendar, Home, Group, Search, Settings, Hash, Plus } from "lucide-react"
 
 import {
     Sidebar,
@@ -9,6 +9,10 @@ import {
     SidebarMenu,
     SidebarMenuButton,
     SidebarMenuItem,
+    SidebarHeader,
+    SidebarInput,
+    SidebarFooter,
+    SidebarSeparator,
 } from "@/components/ui/sidebar"
 
 // Menu items.
@@ -40,10 +44,22 @@ const items = [
     },
 ]
 
+// Canais de texto fictícios
+const textChannels = [
+    { name: "general", url: "#general" },
+    { name: "random", url: "#random" },
+    { name: "help", url: "#help" },
+    { name: "music", url: "#music" },
+]
+
 export function AppSidebar() {
     return (
         <Sidebar>
             <SidebarContent>
+                <SidebarHeader>
+                    <span className="font-bold text-lg items-center justify-center">Notecord</span>
+                </SidebarHeader>
+                <SidebarSeparator />
                 <SidebarGroup>
                     <SidebarGroupLabel>Application</SidebarGroupLabel>
                     <SidebarGroupContent>
@@ -61,6 +77,29 @@ export function AppSidebar() {
                         </SidebarMenu>
                     </SidebarGroupContent>
                 </SidebarGroup>
+                <SidebarGroup>
+                    <SidebarGroupLabel>
+                        TEXT CHANNELS
+                        <Plus className="ml-auto size-4 cursor-pointer opacity-60 hover:opacity-100" />
+                    </SidebarGroupLabel>
+                    <SidebarGroupContent>
+                        <SidebarMenu>
+                            {textChannels.map((ch) => (
+                                <SidebarMenuItem key={ch.name}>
+                                    <SidebarMenuButton asChild>
+                                        <a href={ch.url}>
+                                            <Hash className="opacity-60" />
+                                            <span className="truncate">{ch.name}</span>
+                                        </a>
+                                    </SidebarMenuButton>
+                                </SidebarMenuItem>
+                            ))}
+                        </SidebarMenu>
+                    </SidebarGroupContent>
+                </SidebarGroup>
+                <SidebarFooter>
+                    {/* Espaço para usuário ou ações futuras */}
+                </SidebarFooter>
             </SidebarContent>
         </Sidebar>
     )

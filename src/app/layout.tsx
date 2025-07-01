@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { ThemeProvider } from "@/components/providers/theme-provider";
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
-import { AppSidebar } from "@/components/ui/app-sidebar";
+import { SidebarProvider } from "@/components/ui/sidebar";
+import { ChatSidebar } from "@/components/ui/chat-sidebar";
 
 export const metadata: Metadata = {
   title: "My chat app",
@@ -28,11 +28,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             storageKey="discord-theme"
           >
             <SidebarProvider>
-              <AppSidebar />
-              <main>
-                <SidebarTrigger />
-                {children}
-              </main>
+              <ChatSidebar>{children}</ChatSidebar>
             </SidebarProvider>
           </ThemeProvider>
         </ClerkProvider>
