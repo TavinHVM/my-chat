@@ -6,8 +6,8 @@ import { SidebarProvider } from "@/components/ui/sidebar";
 import { ChatSidebar } from "@/components/ui/chat-sidebar";
 
 export const metadata: Metadata = {
-  title: "My chat app",
-  description: "Chat app built with Next.js and React",
+  title: "Notecord",
+  description: "Chat notes app built with Next.js",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
